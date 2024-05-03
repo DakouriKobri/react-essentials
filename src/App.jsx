@@ -1,3 +1,6 @@
+// NPM Packages
+import { useState } from 'react';
+
 // Project Imports
 import CoreConcept from './components/core-concept';
 import Header from './components/header';
@@ -5,9 +8,14 @@ import TabButton from './components/tab-button';
 import { CORE_CONCEPTS } from './data';
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState('Please, click a button.');
+
   function handleSelect(selectedButton) {
-    console.log(selectedButton);
+    setSelectedTopic(selectedButton);
+    console.log(selectedTopic);
   }
+
+  console.log('App rendered');
 
   return (
     <div>
@@ -33,6 +41,8 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+
+          {selectedTopic}
         </section>
       </main>
     </div>
