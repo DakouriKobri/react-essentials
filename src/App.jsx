@@ -5,7 +5,7 @@ import { useState } from 'react';
 import CoreConcept from './components/core-concept';
 import Header from './components/header';
 import TabButton from './components/tab-button';
-import { CORE_CONCEPTS, EXAMPLES } from './data';
+import { CORE_CONCEPTS, EXAMPLES, TABS_DATA } from './data';
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
@@ -13,6 +13,23 @@ function App() {
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
   }
+
+  const coreConceptsList = CORE_CONCEPTS.map((coreConcept) => {
+    return <CoreConcept key={coreConcept.title} {...coreConcept} />;
+  });
+
+  const tabButtonsList = TABS_DATA.map((tab) => {
+    const { id, title } = tab;
+    return (
+      <TabButton
+        key={id}
+        isSelected={selectedTopic === id}
+        onSelect={() => handleSelect(id)}
+      >
+        {title}
+      </TabButton>
+    );
+  });
 
   let tabContent = <p>Please, select a Topic.</p>;
   if (selectedTopic) {
@@ -34,44 +51,12 @@ function App() {
       <main>
         <section id="core-concepts">
           <h2>Core Concepts</h2>
-          <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]} />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
-          </ul>
+          <ul>{coreConceptsList}</ul>
         </section>
 
         <section id="examples">
           <h2>Examples</h2>
-
-          <menu>
-            <TabButton
-              isSelected={selectedTopic === 'components'}
-              onSelect={() => handleSelect('components')}
-            >
-              Components
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === 'jsx'}
-              onSelect={() => handleSelect('jsx')}
-            >
-              JSX
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === 'props'}
-              onSelect={() => handleSelect('props')}
-            >
-              Props
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === 'state'}
-              onSelect={() => handleSelect('state')}
-            >
-              State
-            </TabButton>
-          </menu>
-
+          <menu>{tabButtonsList}</menu>
           {tabContent}
         </section>
       </main>

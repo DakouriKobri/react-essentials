@@ -4,6 +4,13 @@ import propsImg from './assets/config.png';
 import jsxImg from './assets/jsx-ui.png';
 import stateImg from './assets/state-mgmt.png';
 
+export const TABS_DATA = [
+  { id: 'components', title: 'Components' },
+  { id: 'jsx', title: 'JSX' },
+  { id: 'props', title: 'Props' },
+  { id: 'state', title: 'State' },
+];
+
 export const CORE_CONCEPTS = [
   {
     image: componentsImg,

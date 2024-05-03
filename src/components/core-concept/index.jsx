@@ -1,8 +1,8 @@
 // Project Imports
 import './CoreConcept.css';
 
-export default function CoreConcept(props) {
-  const { description, image, title } = props;
+export default function CoreConcept(coreConcept) {
+  const { description, image, title } = coreConcept;
 
   return (
     <li>
