@@ -1,6 +1,7 @@
 // Project Imports
 import CoreConcept from './CoreConcept';
 import { CORE_CONCEPTS } from '../../data';
+import Section from '../Section';
 
 export default function CoreConcepts() {
   const coreConceptsList = CORE_CONCEPTS.map((coreConcept) => {
@@ -8,9 +9,8 @@ export default function CoreConcepts() {
   });
 
   return (
-    <section id="core-concepts">
-      <h2>Core Concepts</h2>
+    <Section id="core-concepts" title="Core Concepts">
       <ul>{coreConceptsList}</ul>
-    </section>
+    </Section>
   );
 }

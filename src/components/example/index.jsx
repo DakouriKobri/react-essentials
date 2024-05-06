@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 // Project Imports
 import { EXAMPLES, TABS_DATA } from '../../data';
+import Section from '../Section';
 import TabButton from '../tab-button';
 
 export default function Examples() {
@@ -18,7 +19,7 @@ export default function Examples() {
       <TabButton
         key={id}
         isSelected={selectedTopic === id}
-        onSelect={() => handleSelect(id)}
+        onClick={() => handleSelect(id)}
       >
         {title}
       </TabButton>
@@ -39,10 +40,9 @@ export default function Examples() {
     );
   }
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section id="examples" title="Examples">
       <menu>{tabButtonsList}</menu>
       {tabContent}
-    </section>
+    </Section>
   );
 }
