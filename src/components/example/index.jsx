@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { EXAMPLES, TABS_DATA } from '../../data';
 import Section from '../Section';
 import TabButton from '../tab-button';
+import Tabs from '../Tabs';
 
 export default function Examples() {
   const [selectedTopic, setSelectedTopic] = useState();
@@ -39,10 +40,10 @@ export default function Examples() {
       </div>
     );
   }
+
   return (
     <Section id="examples" title="Examples">
-      <menu>{tabButtonsList}</menu>
-      {tabContent}
+      <Tabs buttons={tabButtonsList}>{tabContent}</Tabs>
     </Section>
   );
 }
