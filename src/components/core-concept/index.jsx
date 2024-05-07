@@ -1,7 +1,7 @@
 // Project Imports
 import CoreConcept from './CoreConcept';
 import { CORE_CONCEPTS } from '../../data';
-import Section from '../Section';
+import { Section } from '../wrappers';
 
 export default function CoreConcepts() {
   const coreConceptsList = CORE_CONCEPTS.map((coreConcept) => {
